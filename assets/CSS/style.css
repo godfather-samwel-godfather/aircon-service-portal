@@ -1,0 +1,1301 @@
+/* 1. Global Styles & Variables */
+:root {
+    --primary-color: #0d6efd;
+    --dark-blue: #002366;
+    --accent-yellow: #ffc107;
+    --text-muted: #6c757d;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+
+/*  HEADER */
+/* 2. Navbar Styling */
+.navbar {
+    background: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand i {
+    font-size: 1.8rem;
+}
+/* NAV LINKS HOVER UNDERLINE */
+.navbar-nav .nav-link{
+    position: relative;
+    transition: .3s ease;
+}
+
+
+.navbar-nav .nav-link::after{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: #0056ff; /* blue kali */
+    left: 0;
+    bottom: 0;
+    transition: .3s ease;
+    border-radius: 5px;
+}
+
+
+.navbar-nav .nav-link:hover::after{
+    width: 100%;
+}
+
+
+.navbar-nav .nav-link:hover{
+    color: #0056ff;
+}
+
+
+/* REGISTER BUTTON HOVER */
+.btn-outline-primary:hover{
+    background-color: #0056ff;
+    border-color: #0056ff;
+    color: white !important;
+}
+
+
+/* LOGIN BUTTON HOVER */
+.btn-primary:hover{
+    background-color: #0043cc;
+    border-color: #0043cc;
+    color: white !important;
+}
+
+
+/* Smooth buttons */
+.btn{
+    transition: .3s ease;
+}
+.navbar-brand img{
+    object-fit: cover;
+    transition: .3s;
+}
+
+.navbar-brand:hover img{
+    transform: rotate(10deg) scale(1.08);
+}
+
+.navbar-brand span:first-child{
+    letter-spacing: .5px;
+}
+
+
+
+
+/* 3. HERO SECTION */
+.hero-section {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.btn-custom {
+    border-radius: 50px;
+    padding: 12px 30px;
+    font-weight: 600;
+    transition: transform 0.2s;
+}
+
+.btn-custom:hover {
+    transform: scale(1.05);
+}
+
+/* 4. How It Works Cards */
+.how-card {
+    border: none;
+    border-radius: 15px;
+    transition: all 0.35s ease;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.how-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 13, 253, 0.15);
+}
+
+/* 5. Popular Services Cards */
+.service-card {
+    transition: transform 0.3s ease;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    transform: scale(1.02);
+}
+
+/* 6. Technician Showcase */
+.tech-card {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.tech-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+
+/*CTA emergence*/
+.cta-emergency{
+    background: linear-gradient(rgba(0,35,102,.85),
+                rgba(0,35,102,.85)),
+                url('assets/images/hero.jpg');
+
+    background-size: cover;
+    background-position: center;
+
+    min-height:180px;    
+    display:flex;
+    align-items:center;
+}
+
+.cta-emergency h2{
+    font-weight:700;
+}
+
+.cta-emergency .btn{
+    border-radius:12px;
+    font-weight:600;
+    padding:15px 35px;
+}
+
+/* 8. Customer Reviews */
+.review-card {
+    padding: 25px;
+    border-left: 4px solid var(--primary-color);
+    background: #fdfdfd;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* 9. Footer Styling */
+.footer-stats {
+    background: white;
+    margin-top: -100px;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.bg-gradient-custom {
+    /* Hii inatengeneza gradient ya bluu nyeusi ya kitaalamu */
+    background: linear-gradient(135deg, #002366 0%, #0056b3 100%);
+    border-radius: 15px; /* Inafanya section iwe na kona laini kama picha */
+    padding: 40px 0;
+}
+
+/*POPULAR SERVICES*/
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e9ecef !important; /* Border nyembamba ya kijivu */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.card img {
+    height: 180px; /* Inafanya picha zote ziwe na size moja */
+    object-fit: cover;
+}
+.card {
+    border-radius: 15px !important;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Inainuka kidogo ukigusa */
+}
+
+.text-warning {
+    font-size: 0.9rem; /* Ukubwa wa nyota */
+}
+/* Styling ya Jumla kwa Popular Services Section */
+#popular-services {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: #f8f9fa; /* Rangi hafifu ya nyuma kama ilivyo kwenye picha */
+}
+
+#popular-services .card {
+    border-radius: 12px; /* Kufanya kona za kadi ziwe duara */
+    transition: transform 0.3s ease; /* Kuongeza animation kidogo unapo-hover */
+}
+
+/* Kuongeza muonekano unapo-hover juu ya kadi */
+#popular-services .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+}
+
+#popular-services .card-img-top {
+    height: 200px; /* Kurekebisha urefu wa picha */
+    object-fit: cover; /* Kuhakikisha picha haikunjwi */
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+#popular-services .card-body {
+    padding: 20px;
+}
+
+#popular-services h5 {
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+/* Styling ya orodha ya sifa za huduma */
+#popular-services .list-unstyled li {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+/* Rangi ya ikoni au alama ya tiki (✓) */
+#popular-services .list-unstyled li::before {
+    content: "✓";
+    color: #007bff; /* Rangi ya Bluu ya kampuni */
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+/* Link ya 'Learn More' */
+#popular-services a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #007bff; /* Rangi ya Bluu */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#popular-services a:hover {
+    color: #0056b3; /* Bluu nyeusi zaidi unapo-hover */
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+    border: none;
+}
+footer{
+    background:#0b1220;
+}
+
+footer a{
+    transition:0.3s;
+}
+
+footer a:hover{
+    color:#0d6efd !important;
+    padding-left:4px;
+}
+
+footer .bi{
+    transition:0.3s;
+}
+
+footer .fs-5:hover{
+    color:#0d6efd !important;
+    transform:translateY(-3px);
+}
+
+footer hr{
+    opacity:.15;
+}
+
+
+
+
+
+/*OUR SERVICE PAGE CSS*/
+
+body{
+
+margin:0;
+
+font-family:'Segoe UI',sans-serif;
+
+background: linear-gradient(
+120deg,
+#f8fbff,
+#eaf4ff,
+#dbeafe
+);
+
+}
+
+
+
+
+
+
+
+
+
+/* HERO */
+
+
+.service-hero{
+
+
+background:
+linear-gradient(
+rgba(0,86,255,.75),
+rgba(0,0,0,.5)
+),
+url('assets/images/hero-ac.jpg');
+
+
+background-size:cover;
+
+background-position:center;
+
+padding:100px 30px;
+
+text-align:center;
+
+color:white;
+
+
+}
+
+
+
+
+.service-hero h1{
+
+font-size:45px;
+
+}
+
+
+
+
+
+/* SERVICES */
+
+
+.services-container{
+
+padding:60px;
+
+text-align:center;
+
+}
+
+
+
+.subtitle{
+
+color:#777;
+
+margin-bottom:40px;
+
+}
+
+
+
+.services-grid{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:30px;
+
+}
+
+
+
+
+
+.service-card{
+
+background:white;
+
+border-radius:20px;
+
+overflow:hidden;
+
+box-shadow:0 5px 20px rgba(0,0,0,.1);
+
+transition:.3s;
+
+}
+
+
+
+.service-card:hover{
+
+transform:translateY(-10px);
+
+}
+
+
+
+
+
+.service-card img{
+
+width:100%;
+
+height:220px;
+
+object-fit:cover;
+
+transition:.4s;
+
+}
+
+
+
+.service-card:hover img{
+
+transform:scale(1.1);
+
+}
+
+
+
+.card-content{
+
+padding:25px;
+
+}
+
+
+
+.card-content button{
+
+background:#0056ff;
+
+color:white;
+
+width:100%;
+
+}
+
+@media(max-width:900px){
+
+
+.navbar{
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+
+.services-grid{
+
+grid-template-columns:1fr;
+
+}
+
+
+}
+
+
+
+/*CONTACT US  PAGE*/
+/* CONTACT SECTION */
+
+/* ================= CONTACT US PAGE ================= */
+
+
+/* SECTION */
+
+.contact-section{
+
+    padding:60px 0;
+
+    background:linear-gradient(
+        120deg,
+        #f8fbff,
+        #eaf4ff,
+        #ffffff
+    );
+
+}
+
+
+
+/* MAIN GRID */
+
+.contact-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:30px;
+
+    align-items:stretch;
+
+}
+
+
+
+/* ================= IMAGE SIDE ================= */
+
+
+.hero-image-side{
+
+    position:relative;
+
+    min-height:520px;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    padding:35px;
+
+    color:white;
+
+}
+
+
+
+/* IMAGE */
+
+.contact-image{
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    top:0;
+
+    left:0;
+
+    z-index:0;
+
+}
+
+
+
+/* IMAGE DARK OVERLAY */
+
+.hero-image-side::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+        rgba(0,86,255,.45),
+        rgba(0,0,0,.55)
+    );
+
+    z-index:1;
+
+}
+
+
+
+/* TEXT OVER IMAGE */
+
+
+.overlay-content{
+
+    position:relative;
+
+    z-index:2;
+
+    background:rgba(255,255,255,.15);
+
+    padding:25px;
+
+    border-radius:18px;
+
+    backdrop-filter:blur(8px);
+
+}
+
+
+
+.overlay-content h3{
+
+    font-size:30px;
+
+    font-weight:700;
+
+}
+
+
+
+.overlay-content p{
+
+    font-size:17px;
+
+}
+
+
+
+.rating{
+
+    margin-top:15px;
+
+    font-weight:bold;
+
+    color:#ffd700;
+
+}
+
+
+
+
+
+/* ================= FORM ================= */
+
+
+.form-container{
+
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    box-shadow:
+
+    0 10px 30px rgba(0,0,0,.08);
+
+
+}
+
+
+
+.form-container h2{
+
+    color:#0056ff;
+
+    font-weight:700;
+
+}
+
+
+
+.form-container p{
+
+    color:#777;
+
+}
+
+
+
+
+.form-container input,
+.form-container select,
+.form-container textarea{
+
+
+    width:100%;
+
+    padding:14px 16px;
+
+    margin-bottom:18px;
+
+    border-radius:12px;
+
+    border:1px solid #ddd;
+
+    outline:none;
+
+    font-size:15px;
+
+}
+
+
+
+.form-container input:focus,
+.form-container select:focus,
+.form-container textarea:focus{
+
+
+    border-color:#0056ff;
+
+    box-shadow:
+
+    0 0 8px rgba(0,86,255,.2);
+
+
+}
+
+
+
+
+/* BUTTON */
+
+
+.send-btn{
+
+
+    width:100%;
+
+    padding:14px;
+
+    background:#0056ff;
+
+    color:white;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+
+
+.send-btn:hover{
+
+
+    background:#003db3;
+
+    transform:translateY(-3px);
+
+}
+
+
+
+
+
+/* ================= CONTACT INFO ================= */
+
+
+.contact-info{
+
+
+    margin-top:40px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+
+}
+
+
+
+.contact-info div{
+
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    box-shadow:
+
+    0 5px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+
+}
+
+
+
+.contact-info div:hover{
+
+
+    transform:translateY(-8px);
+
+}
+
+
+
+.contact-info h4{
+
+    color:#0056ff;
+
+}
+
+
+
+
+
+/* ================= MOBILE ================= */
+
+
+@media(max-width:992px){
+
+
+    .contact-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+    .hero-image-side{
+
+        min-height:350px;
+
+    }
+
+
+
+    .contact-info{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+}
+
+
+
+/* ABOUT  US PAGE */
+
+
+.about-section{
+
+padding:60px 70px;
+
+background:
+
+linear-gradient(
+120deg,
+#f8fbff,
+#eaf4ff,
+#ffffff
+);
+
+}
+
+
+
+
+
+/* HERO */
+
+
+.about-hero{
+
+position:relative;
+
+height:500px;
+
+border-radius:30px;
+
+overflow:hidden;
+
+}
+
+
+
+.about-image{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+}
+
+
+
+.about-overlay{
+
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(
+rgba(0,86,255,.65),
+rgba(0,0,0,.5)
+);
+
+
+color:white;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+padding:50px;
+
+
+}
+
+
+
+.about-overlay h1{
+
+font-size:45px;
+
+font-weight:700;
+
+max-width:600px;
+
+}
+
+
+
+.about-overlay button{
+
+width:180px;
+
+background:#0056ff;
+
+color:white;
+
+}
+
+
+
+
+
+
+
+/* INTRO */
+
+
+.about-content{
+
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:40px;
+
+margin-top:70px;
+
+align-items:center;
+
+
+}
+
+
+
+.about-text h2{
+
+color:#0056ff;
+
+font-size:35px;
+
+}
+
+
+
+.about-image-box img{
+
+
+width:100%;
+
+border-radius:25px;
+
+
+}
+
+
+
+
+
+
+/* FEATURES */
+
+
+.center-title{
+
+text-align:center;
+
+margin-top:70px;
+
+color:#0056ff;
+
+}
+
+
+
+.features{
+
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:25px;
+
+margin-top:40px;
+
+
+}
+
+
+
+.feature-card{
+
+
+background:white;
+
+padding:30px;
+
+border-radius:20px;
+
+box-shadow:
+
+0 8px 25px rgba(0,0,0,.08);
+
+
+transition:.3s;
+
+
+}
+
+
+
+.feature-card:hover{
+
+transform:translateY(-10px);
+
+}
+
+
+
+
+
+
+/* MISSION */
+
+
+.mission-grid{
+
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:30px;
+
+margin-top:60px;
+
+
+}
+
+
+
+.mission-grid div{
+
+
+background:white;
+
+padding:35px;
+
+border-radius:20px;
+
+
+}
+
+
+
+.mission-grid h3{
+
+color:#0056ff;
+
+}
+
+
+
+
+
+/* STATS */
+
+
+.about-stats{
+
+
+margin-top:60px;
+
+background:#0056ff;
+
+color:white;
+
+border-radius:25px;
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+padding:35px;
+
+text-align:center;
+
+
+}
+
+
+
+
+
+@media(max-width:992px){
+
+
+.about-section{
+
+padding:30px;
+
+}
+
+
+.about-content,
+.features,
+.mission-grid,
+.about-stats{
+
+
+grid-template-columns:1fr;
+
+
+}
+
+
+
+.about-overlay h1{
+
+font-size:32px;
+
+}
+
+
+}
+
+
+/*/*  ===========HOW IT WORKS PAGE==========*/_/
+.how-it-works{
+
+background:linear-gradient(135deg,#f8fbff,#eef7ff);
+
+}
+
+.step-card{
+
+background:#fff;
+
+padding:35px 25px;
+
+border-radius:20px;
+
+text-align:center;
+
+position:relative;
+
+box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+transition:.3s;
+
+height:100%;
+
+}
+
+.step-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.step-number{
+
+position:absolute;
+
+top:15px;
+
+right:15px;
+
+width:40px;
+
+height:40px;
+
+border-radius:50%;
+
+background:#0d6efd;
+
+color:#fff;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-weight:bold;
+
+}
+
+.step-icon{
+
+font-size:50px;
+
+color:#0d6efd;
+
+margin-bottom:20px;
+
+display:block;
+
+}
+
+.step-card h4{
+
+font-weight:700;
+
+margin-bottom:15px;
+
+}
+
+.step-card p{
+
+color:#6c757d;
+
+margin-bottom:0;
+
+}

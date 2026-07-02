@@ -1,0 +1,114 @@
+:root {
+    --sidebar-width: 250px;
+    --topnav-height: 56px;
+    --sidebar-bg: #002366;
+}
+
+body {
+    padding-top: var(--topnav-height);
+    background-color: #f4f6f9;
+}
+
+.sidebar-bg {
+    background-color: var(--sidebar-bg);
+}
+
+.sidebar .nav-link {
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.sidebar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dashboard-wrapper {
+    min-height: calc(100vh - var(--topnav-height));
+}
+
+.main-content {
+    margin-left: var(--sidebar-width);
+    min-height: calc(100vh - var(--topnav-height));
+}
+
+@media (max-width: 767.98px) {
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+.stat-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+}
+
+.stat-card .stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+.dashboard-container {
+    background: #f8f9fe;
+    padding: 20px;
+}
+
+.card-modern {
+    background: #fff;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.welcome-card {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 35px;
+    margin-bottom: 30px;
+}
+
+.welcome-card h1,
+.welcome-card p {
+    color: #fff;
+}
+
+.scrollable-table {
+    max-height: 360px;
+    overflow-y: auto;
+}
+
+.avatar-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #1e3c72;
+}
+
+.card-modern .list-group-item {
+    background: transparent;
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.card-modern .btn {
+    border-radius: 12px;
+}
