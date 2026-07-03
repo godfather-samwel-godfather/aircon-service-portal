@@ -31,6 +31,11 @@ require_once __DIR__ . '/../includes/helpers.php';
             <i class="bi bi-grid"></i>
             <span>Services</span>
         </a>
+        <a href="dashboard.php?page=messages"
+            class="nav-link text-white d-flex align-items-center gap-3 <?= sidebarActive('messages', $current_page) ?>">
+            <i class="bi bi-chat-left-text"></i>
+            <span>Messages</span>
+        </a>
     </div>
     <div class="nav nav-pills flex-column mt-auto pb-5">
         <hr class="text-white-50">

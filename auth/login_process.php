@@ -142,7 +142,7 @@ if($user['role'] == "technician"){
     if(!$technician || $technician['verification_status'] != "approved"){
 
 
-        header("Location: ../technician/pending.php");
+        header("Location: /ACSS/airconservices_booking/technician/pending.php");
 
         exit;
 

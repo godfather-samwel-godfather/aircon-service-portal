@@ -27,14 +27,24 @@ function requireRole(string $role): void
 
 /**
  * Start session + login check kwa action files.
+ *//**
+ * Start session + login check kwa action files.
+ * Tunatumia function_exists kuzuia kosa la "Cannot redeclare" 
+ * endapo faili hili litaingizwa mara nyingi.
  */
-function requireLogin(): void
-{
-    if (session_status() === PHP_SESSION_NONE) {
-        session_start();
-    }
+if (!function_exists('requireLogin')) {
+    function requireLogin(): void
+    {
+        // Angalia kama session haijaanza kabla ya kuanzisha
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
 
-    if (!getCurrentUserId()) {
-        redirect('../auth/login.php?error=Please login first');
+        // Angalia kama mtumiaji hajaingia
+        if (!getCurrentUserId()) {
+            // Hakikisha njia (path) ya kuelekea login.php ni sahihi kulingana na muundo wa folder zako
+            header('Location: ../auth/login.php?error=Please login first');
+            exit(); // Muhimu: Acha script iendelee baada ya redirect
+        }
     }
 }

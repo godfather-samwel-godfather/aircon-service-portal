@@ -1,6 +1,7 @@
 <?php
 /**
- * Load once per dashboard page — DB + session + auth + helpers.
+ * Public bootstrap - for public-facing pages (home, contact, services, etc.)
+ * Does NOT require authentication
  */
 
 require_once __DIR__ . '/../config/db.php';
@@ -19,5 +20,4 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-require_once __DIR__ . '/../auth/auth.php';
-require_once __DIR__ . '/session_user.php';
+// NOTE: Does NOT require auth.php or session_user.php - this is for public pages

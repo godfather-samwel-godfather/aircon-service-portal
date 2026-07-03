@@ -7,7 +7,7 @@ require_once __DIR__ . '/../config/db.php';
 
 // LOGIN CHECK
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../auth/login.php?error=Please login first");
+    header("Location: /ACSS/airconservices_booking/auth/login.php?error=Please login first");
     exit;
 }
 
@@ -21,7 +21,7 @@ if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], $valid_roles)) {
     session_unset();
     session_destroy();
 
-    header("Location: ../auth/login.php?error=Invalid session");
+    header("Location: /ACSS/airconservices_booking/auth/login.php?error=Invalid session");
     exit;
 }
 ?>

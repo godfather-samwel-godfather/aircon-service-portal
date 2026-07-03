@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['user_id']) || ($_SESSION['role'] ?? '') !== 'technician') {
-    header("Location: ../auth/login.php");
+    header("Location: /ACSS/airconservices_booking/auth/login.php");
     exit;
 }
 ?>

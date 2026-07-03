@@ -5,8 +5,8 @@
 
 
         <!-- Logo -->
-        <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
-            <img src="../assets/images/logoo.jpg" width="50" height="50" class="rounded-circle me-3 shadow-sm">
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="/ACSS/airconservices_booking/admin/dashboard.php">
+            <img src="/ACSS/airconservices_booking/assets/images/logoo.jpg" width="50" height="50" class="rounded-circle me-3 shadow-sm">
 
             <span class="d-flex flex-column lh-1">
                 <span class="fs-4">AirCon</span>
@@ -111,7 +111,7 @@
 
                     <li>
 
-                        <a class="dropdown-item text-danger" href="../auth/logout.php">
+                        <a class="dropdown-item text-danger" href="/ACSS/airconservices_booking/auth/logout.php">
 
                             <i class="bi bi-box-arrow-right"></i>
 

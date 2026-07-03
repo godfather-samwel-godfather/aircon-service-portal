@@ -80,3 +80,36 @@ function flashMessage(): void
         echo '<button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>';
     }  
 }
+
+/** Set flash message in session */
+function setFlash(string $type, string $message): void
+{
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+    if ($type === 'success') {
+        $_SESSION['success'] = $message;
+    } elseif ($type === 'error') {
+        $_SESSION['error'] = $message;
+    } elseif ($type === 'errors') {
+        $_SESSION['errors'] = is_array($message) ? $message : [$message];
+    }
+}
+
+/** Redirect to URL */
+function redirectTo(string $url): void
+{
+    redirect($url);
+}
+
+/** Require user to be logged in */
+function requireLogin(): void
+{
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    if (!isset($_SESSION['user_id'])) {
+        header('Location: ' . __DIR__ . '/../auth/login.php');
+        exit;
+    }
+}

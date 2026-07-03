@@ -1,3 +1,48 @@
+<?php
+require_once __DIR__ . '/includes/public_bootstrap.php';
+
+/*$userEmail = '';*/
+$userMessages = [];
+
+/* If user is logged in, show their messages
+if (isset($_SESSION['user_id'])) {
+    $userId = (int) $_SESSION['user_id'];
+    $stmt = $conn->prepare("SELECT  email FROM users WHERE id = ?");
+    $stmt->bind_param('i', $userId);
+    $stmt->execute();
+    $user = $stmt->get_result()->fetch_assoc();
+    $userEmail = $user['email'] ?? '';
+    
+    if ($userEmail) {
+        $msgStmt = $conn->prepare("
+            SELECT id, name, email, phone, subject, message, reply, status, created_at, replied_at
+            FROM contact_messages
+            WHERE email = ?
+            ORDER BY created_at DESC
+        ");
+        $msgStmt->bind_param('s', $userEmail);
+        $msgStmt->execute();
+        $userMessages = $msgStmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+}*/
+
+
+if (!empty($_SESSION['user_id'])) {
+    $userId = (int) $_SESSION['user_id'];
+
+    $msgStmt = $conn->prepare("
+        SELECT id, name, email, phone, subject, message, reply, status, created_at, replied_at
+        FROM contact_messages
+        WHERE user_id = ?
+        ORDER BY created_at DESC
+    ");
+
+    $msgStmt->bind_param('i', $userId);
+    $msgStmt->execute();
+    $userMessages = $msgStmt->get_result()->fetch_all(MYSQLI_ASSOC);
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,9 +123,25 @@
                         Have a question? Our team is ready to help.
                     </p>
 
+                    <?php 
+                    if (isset($_SESSION['success'])): ?>
+                    <div class="alert alert-success"><?= e($_SESSION['success']) ?></div>
+                    <?php unset($_SESSION['success']); ?>
+                    <?php endif; ?>
+                    <?php if (isset($_SESSION['error'])): ?>
+                    <div class="alert alert-danger"><?= e($_SESSION['error']) ?></div>
+                    <?php unset($_SESSION['error']); ?>
+                    <?php endif; ?>
+                    <?php if (isset($_SESSION['errors'])): ?>
+                    <div class="alert alert-danger">
+                        <?php foreach ($_SESSION['errors'] as $error): ?>
+                        <div><?= e($error) ?></div>
+                        <?php endforeach; ?>
+                    </div>
+                    <?php unset($_SESSION['errors']); ?>
+                    <?php endif; ?>
 
-
-                    <form action="contact_process.php" method="POST">
+                    <form action="/ACSS/airconservices_booking/actions/contact_process.php" method="POST">
 
 
                         <input type="text" name="name" placeholder="Your Full Name" required>
@@ -95,28 +156,31 @@
 
 
 
-                        <select name="service">
+                        <select name="service" required>
 
-                            <option>
+                            <option value="">
                                 Select Service
                             </option>
 
-                            <option>
+                            <option value="AC Installation">
                                 AC Installation
                             </option>
 
-                            <option>
+                            <option value="AC Repair">
                                 AC Repair
                             </option>
 
-                            <option>
+                            <option value="Maintenance">
                                 Maintenance
                             </option>
 
-                            <option>
+                            <option value="Emergency Repair">
                                 Emergency Repair
                             </option>
 
+                            <option value="General Inquiry">
+                                General Inquiry
+                            </option>
 
                         </select>
 
@@ -193,6 +257,52 @@
 
 
 
+        </div>
+
+        <!-- MESSAGE HISTORY -->
+        <!-- MESSAGE HISTORY -->
+        <!-- MESSAGE HISTORY SECTION (ALWAYS VISIBLE) -->
+        <div style="margin-top:60px; padding:40px; background:#f9f9f9; border-top:2px solid #ddd;">
+            <div class="container">
+
+                <h3>Your Messages & Replies</h3>
+
+                <?php if (!isset($_SESSION['user_id'])): ?>
+
+                <p>Please login to view your messages.</p>
+
+                <?php else: ?>
+
+                <?php if (!empty($userMessages)): ?>
+
+                <?php foreach ($userMessages as $msg): ?>
+
+                <div style="margin:20px 0; padding:15px; background:#fff; border-left:4px solid #007bff;">
+
+                    <h5><?= e($msg['subject']) ?></h5>
+
+                    <p><?= nl2br(e($msg['message'])) ?></p>
+
+                    <?php if (!empty($msg['reply'])): ?>
+                    <div style="margin-top:10px; background:#e7f3ff; padding:10px;">
+                        <strong>Admin Reply:</strong>
+                        <p><?= nl2br(e($msg['reply'])) ?></p>
+                    </div>
+                    <?php endif; ?>
+
+                </div>
+
+                <?php endforeach; ?>
+
+                <?php else: ?>
+
+                <p>No messages yet. Send your first message above.</p>
+
+                <?php endif; ?>
+
+                <?php endif; ?>
+
+            </div>
         </div>
 
 
